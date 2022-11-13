@@ -68,17 +68,19 @@ test("clicking decrement button cannot go below zero", () => {
   expect(errorText).toBe("The counter cannot go below 0");
 });
 
-test("clicking decrement button decrements counter display", () => {
+test("clicking decrement button decrements counter display, display is 2", () => {
   const wrapper = setup();
+
+  let incrementButton = getByTestAttribute(wrapper, "increment-button");
+  incrementButton.simulate("click");
+  incrementButton = getByTestAttribute(wrapper, "increment-button");
+  incrementButton.simulate("click");
+  incrementButton = getByTestAttribute(wrapper, "increment-button");
+  incrementButton.simulate("click");
+
   const decrementButton = getByTestAttribute(wrapper, "decrement-button");
-  const incrementButton = getByTestAttribute(wrapper, "increment-button");
-
-  incrementButton.simulate("click");
-  incrementButton.simulate("click");
-  incrementButton.simulate("click");
   decrementButton.simulate("click");
-
   const count = getByTestAttribute(wrapper, "count").text();
 
-  expect(count).toBe("1");
+  expect(count).toBe("2");
 });
