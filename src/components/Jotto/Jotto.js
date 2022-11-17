@@ -1,9 +1,8 @@
 import { Congrats } from "./Congrats";
 import { GuessedWords } from "./GuessedWords";
-import "./Jotto.css";
 
 export const Jotto = () => (
-  <>
+  <div className="container">
     <h2>Jotto</h2>
     <Congrats success={true} />
     <GuessedWords
@@ -13,5 +12,5 @@ export const Jotto = () => (
         { guessedWord: "party", lettersMatchCount: 5 },
       ]}
     ></GuessedWords>
-  </>
+  </div>
 );
