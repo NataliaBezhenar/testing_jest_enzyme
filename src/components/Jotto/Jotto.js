@@ -1,9 +1,11 @@
 import { Congrats } from "./Congrats";
 import { GuessedWords } from "./GuessedWords";
+import { Input } from "./Input";
 
 export const Jotto = () => (
   <div className="container">
     <h2>Jotto</h2>
+    <Input secretWord="" />
     <Congrats success={true} />
     <GuessedWords
       guessedWords={[

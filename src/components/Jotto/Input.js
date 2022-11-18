@@ -1,7 +1,11 @@
 import { useState } from "react";
 
-export const Input = ({ secretWord }) => {
+export const Input = ({ success, secretWord }) => {
   const [currentGuess, setCurrentGuess] = useState("");
+
+  if (success) {
+    return <div data-test="input-component" />;
+  }
   return (
     <div data-test="input-component">
       <form className="form-inline">
@@ -17,6 +21,10 @@ export const Input = ({ secretWord }) => {
           data-test="submit-button"
           type="submit"
           className="btn btn-primary mb-2"
+          onClick={(event) => {
+            event.preventDefault();
+            setCurrentGuess("");
+          }}
         >
           Submit
         </button>
