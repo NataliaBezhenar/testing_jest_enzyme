@@ -2,17 +2,16 @@ import { Congrats } from "./Congrats";
 import { GuessedWords } from "./GuessedWords";
 import { Input } from "./Input";
 
-export const Jotto = () => (
-  <div className="container">
-    <h2>Jotto</h2>
-    <Input secretWord="" />
-    <Congrats success={true} />
-    <GuessedWords
-      guessedWords={[
-        { guessedWord: "train", lettersMatchCount: 3 },
-        { guessedWord: "agile", lettersMatchCount: 1 },
-        { guessedWord: "party", lettersMatchCount: 5 },
-      ]}
-    ></GuessedWords>
-  </div>
-);
+export const Jotto = () => {
+  const success = false;
+  const secretWord = "party";
+  const guessedWords = [];
+  return (
+    <div className="container" data-test="jotto-component">
+      <h2>Jotto</h2>
+      <Input secretWord={secretWord} success={success} />
+      <Congrats success={success} />
+      <GuessedWords guessedWords={guessedWords}></GuessedWords>
+    </div>
+  );
+};
