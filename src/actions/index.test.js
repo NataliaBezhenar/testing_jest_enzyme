@@ -16,7 +16,6 @@ describe("getSecretWord", () => {
         response: "party",
       });
     });
-
     // update to test app in Redux / context sections
     return getSecretWord().then((secretWord) => {
       expect(secretWord).toBe("party");
