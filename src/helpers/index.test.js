@@ -1,6 +1,6 @@
 import { getLetterMatchCount } from "./";
 
-describe("getLetterMatchCount ", () => {
+describe("getLetterMatchCount", () => {
   const secretWord = "party";
   test("returns correct count when there are no matching letters", () => {
     const letterMatchCount = getLetterMatchCount("bones", secretWord);
