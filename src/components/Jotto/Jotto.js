@@ -1,13 +1,15 @@
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
+
 import { Congrats } from "./Congrats/Congrats";
 import { GuessedWords } from "./GuessedWords/GuessedWords";
 import { Input } from "./Input/Input";
 import { getSecretWord } from "./actions";
 
 export const Jotto = () => {
-  const success = false;
+  const success = useSelector((state) => state.success);
   const secretWord = "party";
-  const guessedWords = [];
+  const guessedWords = useSelector((state) => state.guessedWords);
 
   useEffect(() => {
     getSecretWord();
