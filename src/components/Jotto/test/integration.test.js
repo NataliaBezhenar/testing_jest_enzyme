@@ -1,5 +1,5 @@
 import { storeFactory } from "../testUtils";
-import { guessWord } from "../actions";
+import { guessWord } from "../actions/actions";
 
 describe("guessWord action dispatcher", () => {
   describe("no guessed words", () => {
