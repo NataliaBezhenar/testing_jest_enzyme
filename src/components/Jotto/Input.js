@@ -1,11 +1,14 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
-export const Input = ({ success, secretWord }) => {
+export const Input = ({ secretWord }) => {
   const [currentGuess, setCurrentGuess] = useState("");
+  const success = useSelector((state) => state.success);
 
   if (success) {
     return <div data-test="input-component" />;
   }
+
   return (
     <div data-test="input-component">
       <form className="form-inline">
