@@ -2,14 +2,14 @@ import { mount } from "enzyme";
 
 import { Jotto } from "./Jotto";
 
-import { findByTestAttr as getByTestAttr } from "../../test/testUtils";
+import { getByTestAttribute } from "./testUtils";
 
 const setup = (state = {}) => {
   const wrapper = mount(<Jotto />);
 
-  const inputBox = getByTestAttr(wrapper, "input-box");
+  const inputBox = getByTestAttribute(wrapper, "input-box");
   inputBox.simulate("change", { target: { value: "train" } });
-  const submitBtn = getByTestAttr(wrapper, "submit-button");
+  const submitBtn = getByTestAttribute(wrapper, "submit-button");
   submitBtn.simulate("click", { perventDefault() {} });
 
   return wrapper;
@@ -25,7 +25,7 @@ describe.skip("no words guessed", () => {
     wrapper = setup({ secretWord: "party", success: false, guessedWords: [] });
   });
   test("creates GuseedsWords table with one row", () => {
-    const guessedWordRows = getByTestAttr(wrapper, "guessed-word");
+    const guessedWordRows = getByTestAttribute(wrapper, "guessed-word");
     expect(guessedWordRows).toHaveLength(1);
   });
 });
@@ -40,7 +40,7 @@ describe.skip("some letters guessed", () => {
     });
   });
   test("one letter guessed, should have 2 rows", () => {
-    const guessedWordRows = getByTestAttr(wrapper, "guessed-word");
+    const guessedWordRows = getByTestAttribute(wrapper, "guessed-word");
     expect(guessedWordRows).toHaveLength(2);
   });
 });
@@ -55,29 +55,29 @@ describe.skip("guessed secret word", () => {
     });
 
     // add value to input box
-    const inputBox = getByTestAttr(wrapper, "input-box");
+    const inputBox = getByTestAttribute(wrapper, "input-box");
     const mockEvent = { target: { value: "party" } };
     inputBox.simulate("change", mockEvent);
 
     // simulate button click
-    const submitBtn = getByTestAttr(wrapper, "submit-button");
+    const submitBtn = getByTestAttribute(wrapper, "submit-button");
     submitBtn.simulate("click", { perventDefault() {} });
   });
   test("adds row to guessed words table", () => {
-    const guessedWordsNodes = getByTestAttr(wrapper, "guessed-word");
+    const guessedWordsNodes = getByTestAttribute(wrapper, "guessed-word");
     expect(guessedWordsNodes).toHaveLength(3);
   });
 
   test("displays congrats component", () => {
-    const congrats = getByTestAttr(wrapper, "component-congrats");
+    const congrats = getByTestAttribute(wrapper, "component-congrats");
     expect(congrats.text().length).toBeGreaterThan(0);
   });
 
   test("does not display input component contents", () => {
-    const inputBox = getByTestAttr(wrapper, "input-box");
+    const inputBox = getByTestAttribute(wrapper, "input-box");
     expect(inputBox.exists()).toBe(false);
 
-    const submitBtn = getByTestAttr(wrapper, "submit-button");
+    const submitBtn = getByTestAttribute(wrapper, "submit-button");
     expect(submitBtn.exists()).toBe(false);
   });
 });

@@ -1,6 +1,6 @@
 import { shallow } from "enzyme";
 
-import { findByTestAttr as getByTestAttribute } from "../../test/testUtils";
+import { getByTestAttribute } from "../testUtils";
 import { Congrats } from "./Congrats";
 
 /**

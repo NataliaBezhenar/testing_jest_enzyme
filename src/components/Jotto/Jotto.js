@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { Congrats } from "./Congrats";
-import { GuessedWords } from "./GuessedWords";
-import { Input } from "./Input";
-import { getSecretWord } from "../../actions";
+import { Congrats } from "./Congrats/Congrats";
+import { GuessedWords } from "./GuessedWords/GuessedWords";
+import { Input } from "./Input/Input";
+import { getSecretWord } from "./actions";
 
 export const Jotto = () => {
   const success = false;

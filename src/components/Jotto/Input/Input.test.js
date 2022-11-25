@@ -2,10 +2,7 @@ import React from "react";
 import { mount } from "enzyme";
 import { Provider } from "react-redux";
 
-import {
-  findByTestAttr as getByTestAttribute,
-  storeFactory,
-} from "../../test/testUtils";
+import { getByTestAttribute, storeFactory } from "../testUtils";
 import { Input } from "./Input";
 
 const setup = (initialState = {}, secretWord = "party") => {

@@ -1,7 +1,5 @@
-import { createStore, applyMiddleware } from "redux";
-import ReduxThunk from "redux-thunk";
-import rootReducer from "./reducers";
+import { createStore } from "redux";
 
-export const middlewares = [ReduxThunk];
+import rootReducer from "./components/Jotto/reducers";
 
-export default createStore(rootReducer, {}, applyMiddleware(...middlewares));
+export default createStore(rootReducer);

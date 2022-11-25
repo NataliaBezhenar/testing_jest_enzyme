@@ -1,7 +1,7 @@
 import { shallow } from "enzyme";
 
 import { GuessedWords } from "./GuessedWords";
-import { findByTestAttr as getByTestAttr } from "../../test/testUtils";
+import { getByTestAttribute } from "../testUtils";
 
 const defaultProps = {
   guessedWords: [{ guessedWord: "train", lettersMatchCount: 3 }],
@@ -20,11 +20,11 @@ describe("if there are no words guessed", () => {
     wrapper = setup({ guessedWords: [] });
   });
   test("renders without error", () => {
-    const component = getByTestAttr(wrapper, "component-guessed-words");
+    const component = getByTestAttribute(wrapper, "component-guessed-words");
     expect(component.length).toBe(1);
   });
   test("renders instructions to guess a word", () => {
-    const instructions = getByTestAttr(wrapper, "guess-instructions");
+    const instructions = getByTestAttribute(wrapper, "guess-instructions");
     expect(instructions.text().length).not.toBe(0);
   });
 });
@@ -41,17 +41,17 @@ describe("if there are words guessed", () => {
   });
 
   test("renders without error", () => {
-    const component = getByTestAttr(wrapper, "component-guessed-words");
+    const component = getByTestAttribute(wrapper, "component-guessed-words");
     expect(component.length).toBe(1);
   });
 
   test("renders guessed words section", () => {
-    const guessedWordsNode = getByTestAttr(wrapper, "guessed-words");
+    const guessedWordsNode = getByTestAttribute(wrapper, "guessed-words");
     expect(guessedWordsNode.length).toBe(1);
   });
 
   test("correct number of guessed words", () => {
-    const guessedWordsNodes = getByTestAttr(wrapper, "guessed-word");
+    const guessedWordsNodes = getByTestAttribute(wrapper, "guessed-word");
     expect(guessedWordsNodes.length).toBe(guessedWords.length);
   });
 });
