@@ -8,7 +8,7 @@ export const GuessedWords = (props) => {
     const guessedWordsRows = props.guessedWords.map((word, index) => (
       <tr data-test="guessed-word" key={index}>
         <td>{word.guessedWord}</td>
-        <td>{word.lettersMatchCount}</td>
+        <td>{word.letterMatchCount}</td>
       </tr>
     ));
     contents = (
