@@ -11,11 +11,11 @@ export const Jotto = () => {
   const secretWord = useSelector((state) => state.secretWord);
   const guessedWords = useSelector((state) => state.guessedWords);
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getSecretWord());
-  // }, []);
+  useEffect(() => {
+    dispatch(getSecretWord());
+  }, []);
 
   return (
     <div className="container" data-test="jotto-component">
