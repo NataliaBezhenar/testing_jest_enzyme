@@ -7,6 +7,7 @@ const navItems = [
   { href: "about", text: "About" },
   { href: "counter", text: "Counter" },
   { href: "jotto", text: "Jotto" },
+  { href: "map", text: "Map" },
 ];
 
 const NavItem = styled(NavLink)`
